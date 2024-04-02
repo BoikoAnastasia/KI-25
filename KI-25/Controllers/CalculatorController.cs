@@ -5,14 +5,21 @@ namespace KI_25.Controllers
 {
     public class CalculatorController : Controller
     {
-        [Route("calculator/index/{num1?}/{num2?}")]
-        public IActionResult Index(double num1 = 0, double num2 = 0)
+        
+        public string Index(int  num1, int num2)
         {
+            if (num1 == null)
+            {
+                num1 = 0;
+            }
+            if (num2 == null)
+            {
+                num2 = 0;
+            }
+            int num = num1 + num2;
+            return num.ToString();
 
-
-            return Content($"{num1}+{num2}= {num1 + num2}", "text/plain");
         }
-
         
     }
     
