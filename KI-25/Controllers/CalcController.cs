@@ -11,6 +11,7 @@ namespace KI_25.Controllers
                 switch (c)
                 {
                     case "+":
+                    default:
                         return a.ToString() + c + b.ToString() + " = " + (a + b).ToString();
                     case "-":
                         return a.ToString() + c + b.ToString() + " = " + (a - b).ToString();
