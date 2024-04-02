@@ -4,7 +4,7 @@ namespace KI_25.Controllers
 {
     public class CalculatorController : Controller
     {
-        public String Index(int a, int b, string c)
+        public String Index1(int a, int b, string c)
         {
             switch (c)
             {
