@@ -20,10 +20,10 @@ namespace KI_25.Controllers
             Items = JsonConvert.DeserializeObject<IList<Products>>(json);
             for (int i = 0; i < Items.Count; i++)
             {
-                strId += Items[i].Id.ToString();
-                strName += Items[i].Name.ToString();
-                strPrice += Items[i].Cost.ToString();
-                strDescriptions += Items[i].Description.ToString();
+                strId = Items[i].Id.ToString();
+                strName = Items[i].Name.ToString();
+                strPrice = Items[i].Cost.ToString();
+                strDescriptions = Items[i].Description.ToString();
                 returnStr += strId + " " + strName + " " + strPrice + " " + strDescriptions + "\n";
             }
             return returnStr;
