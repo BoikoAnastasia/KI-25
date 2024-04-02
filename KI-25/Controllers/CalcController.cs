@@ -12,7 +12,7 @@ namespace KI_25.Controllers
                 {
                     case "+":
                     default:
-                        return a.ToString() + c + b.ToString() + " = " + (a + b).ToString();
+                        return a.ToString() + "+" + b.ToString() + " = " + (a + b).ToString();
                     case "-":
                         return a.ToString() + c + b.ToString() + " = " + (a - b).ToString();
                     case "*":
