@@ -5,7 +5,6 @@ namespace KI_25.Controllers
 {
     public class StartController : Controller
     {
-        // GET: StartController
         public string Hello()
         {
             
