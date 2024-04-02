@@ -4,9 +4,18 @@ namespace KI_25.Controllers
 {
     public class CalculatorController : Controller
     {
-        public String Index(int a, int b)
+        public String Index(int a, int b, string c)
         {
-            return a.ToString() + " + " + b.ToString() + " = " + (a + b).ToString();
+            switch (c)
+            {
+                case "+":
+                    return a.ToString() + c + b.ToString() + " = " + (a + b).ToString();
+                case "-":
+                    return a.ToString() + c + b.ToString() + " = " + (a - b).ToString();
+                case "*":
+                    return a.ToString() + c + b.ToString() + " = " + (a * b).ToString();
+            }
+            return "Я ни знаю :((";
         }
     }
 }
