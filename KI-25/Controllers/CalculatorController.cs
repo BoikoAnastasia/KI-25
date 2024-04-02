@@ -6,7 +6,16 @@ namespace KI_25.Controllers
     {
         public String Index(int a, int b)
         {
-            return a.ToString() + " + " + b.ToString() + " = " + (a + b).ToString();
+            switch (c)
+            {
+                case "+":
+                    return a.ToString() + c + b.ToString() + " = " + (a + b).ToString();
+                case "-":
+                    return a.ToString() + c + b.ToString() + " = " + (a - b).ToString();
+                case "*":
+                    return a.ToString() + c + b.ToString() + " = " + (a * b).ToString();
+            }
+            return "Я ни знаю :((";
         }
     }
 }
