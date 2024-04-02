@@ -7,4 +7,9 @@
     <RootNamespace>KI_25</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AWSSDK" Version="2.3.55.2" />
+    <PackageReference Include="Sentry" Version="4.2.1" />
+  </ItemGroup>
+
 </Project>
