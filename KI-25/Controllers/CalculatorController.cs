@@ -8,5 +8,19 @@ namespace KI_25.Controllers
         {
             return a.ToString() + " + " + b.ToString() + " = " + (a + b).ToString();
         }
+
+        public string Index1(int a, int b, string c)
+        {
+            switch (c)
+            {
+                case "+":
+                    return a.ToString() + c + b.ToString() + " = " + (a + b).ToString();
+                case "-":
+                    return a.ToString() + c + b.ToString() + " = " + (a - b).ToString();
+                case "*":
+                    return a.ToString() + c + b.ToString() + " = " + (a * b).ToString();
+            }
+            return "Я ни знаю :((";
+        }
     }
 }
