@@ -4,7 +4,12 @@ namespace KI_25.Controllers
 {
     public class CalculatorController : Controller
     {
-        public String Index1(int a, int b, string c)
+        public string Index(int a, int b)
+        {
+            return a.ToString() + " + " + b.ToString() + " = " + (a + b).ToString();
+        }
+
+        public string Index1(int a, int b, string c)
         {
             switch (c)
             {
