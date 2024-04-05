@@ -2,13 +2,31 @@
 
 namespace KI_25.Controllers
 {
-    [Route("calculator/index/{a?}/{b?}")]
-    public class CalculatorController : Controller
+    public class CalcController : Controller
     {
-        [HttpGet]
-        public IActionResult Index(double a = 0, double b = 0)
+        public string Index(int a, int b, string c)
         {
-            return Content($"{a} + {b} = {a + b}", "text/plain");
+            switch (c)
+            {
+                case "+":
+                    return $"{a} + {b} = {a + b}";
+                case "-":
+                    return $"{a} - {b} = {a - b}";
+                case "*":
+                    return $"{a} * {b} = {a * b}";
+                case "/":
+                    if (b != 0)
+                    {
+                        double result = (double)a / b;
+                        return $"{a} / {b} = {result}";
+                    }
+                    else
+                    {
+                        return "На ноль делить нельзя!";
+                    }
+                default:
+                    return "Операция не поддерживается";
+            }
         }
     }
 }
