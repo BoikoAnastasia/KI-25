@@ -8,23 +8,17 @@ namespace KI_25.Controllers
     public class ProductsController : Controller
     {
         public IList<Products> Items { get; set; }
-        public string strId = ""; 
-        public string strName = "";
-        public string returnStr = "";
-        public string strPrice = "";
-        public string strDescriptions = "";
+       
 
         public string GetInfo()
         {
+            string returnStr = "";
             var json = System.IO.File.ReadAllText(@"products.json");
             Items = JsonConvert.DeserializeObject<IList<Products>>(json);
             for (int i = 0; i < Items.Count; i++)
             {
-                strId = Items[i].Id.ToString();
-                strName = Items[i].Name.ToString();
-                strPrice = Items[i].Cost.ToString();
-                strDescriptions = Items[i].Description.ToString();
-                returnStr += strId + " " + strName + " " + strPrice + " " + strDescriptions + "\n";
+                
+               returnStr += Items[i].Id.ToString() + " " + Items[i].Name.ToString() + " " + Items[i].Cost.ToString() + " " + Items[i].Description.ToString() + "\n";
             }
             return returnStr;
         }
