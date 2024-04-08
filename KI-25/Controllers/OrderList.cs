@@ -10,5 +10,14 @@ namespace KI_25.Controllers
         new ShopData(3, "Thirty Product", 300, "Description for Thirty Product"),
         new ShopData(4, "Four Product", 400, "Description for Four Product"),
         };
+
+        public static ShopData GetShopDataList(int index)
+        {
+            if (index >= 0 && index < shopDatas.Count)
+            {
+                return shopDatas[index];
+            }
+            else return shopDatas[0]; 
+        }
     }
 }
