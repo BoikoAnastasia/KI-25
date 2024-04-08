@@ -6,22 +6,17 @@ namespace KI_25.Controllers
     {
         public string Index(int id)
         {
-            var path = Path.Combine(Environment.CurrentDirectory, "data.json");
-            var json = System.IO.File.ReadAllText(path);
-
-            ShopData dataJson = Newtonsoft.Json.JsonConvert.DeserializeObject<ShopData>(json);
-
             string output = "";
             switch (id)
             {
                 case 0:
-                    for (int i = 0; i < dataJson.Id.Length; i++)
+                    for (int i = 0; i < OrderList.shopDatas.Count; i++)
                     {
-                        output += dataJson.Id[i].ToString() + "\n" + dataJson.Name[i] + "\n" + dataJson.Cost[i] + "\n\n";
+                        output += OrderList.shopDatas[i].Id.ToString() + "\n" + OrderList.shopDatas[i].Name + "\n" + OrderList.shopDatas[i].Cost + "\n\n";
                     }
                     return output;
                 default:
-                    return dataJson.Id[id-1].ToString() + "\n" + dataJson.Name[id-1] + "\n" + dataJson.Cost[id-1] + "\n" + dataJson.Description[id-1];
+                    return OrderList.shopDatas[id - 1].Id.ToString() + "\n" + OrderList.shopDatas[id - 1].Name + "\n" + OrderList.shopDatas[id - 1].Cost + "\n" + OrderList.shopDatas[id - 1].Description;
             }
         }
     }
