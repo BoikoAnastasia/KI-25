@@ -28,6 +28,23 @@ namespace KI_25.Controllers
                 return "Добрый день.";
             }
             else { return "Добрый вечер."; }
+
+//     public class StartController : Controller
+//     {
+//         public string Index(int num1, int num2)
+//         {
+//             if(num1 == null)
+//             {
+//                 num1 = 0;
+//             } if(num2 == null)
+//             {
+//                 num2 = 0;
+//             }
+
+//             int num = num1 + num2;
+//             string result = num.ToString();
+//             return result;
+
         }
     }
 }
