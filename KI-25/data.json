@@ -1,5 +1,5 @@
 {
-  "id": [ 1, 2, 3 ],
+  "Id": [ 1, 2, 3 ],
   "Name": [ "Item A", "Item B", "Item C" ],
   "Cost": [ 100.0, 200.0, 300.0 ],
   "Description": [ "Description for Item A", "Description for Item B", "Description for Item C" ]

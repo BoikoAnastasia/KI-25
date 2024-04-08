@@ -2,8 +2,8 @@
 {
     public class ShopData
     {
-        [Newtonsoft.Json.JsonProperty("id")]
-        public int[] id { get; set; }
+        [Newtonsoft.Json.JsonProperty("Id")]
+        public int[] Id { get; set; }
 
         [Newtonsoft.Json.JsonProperty("Name")]
         public string[] Name { get; set; }
