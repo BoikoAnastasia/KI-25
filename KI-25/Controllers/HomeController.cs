@@ -1,32 +1,28 @@
 ﻿using KI_25.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Diagnostics;
 
 namespace KI_25.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        public IList<Product> Items { get; set; }
+        public string Index() {
+            var str = "";
+             var json = System.IO.File.ReadAllText(@"Product.json");
+        Items = JsonConvert.DeserializeObject<IList<Product>>(json);
+        
+          
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+            for (int i = 0; i < Items.Count; i++)
+            {
+                str += Items[i].Id.ToString() + " " + Items[i].Name.ToString() + " " + Items[i].Price.ToString() + " " + Items[i].Description.ToString() + Items[i].Category + "\n";
+            }
+
+                return str;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+  
         }
     }
-}
