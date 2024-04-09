@@ -6,7 +6,7 @@ namespace KI_25.Controllers
     public class CalculatorController : Controller
     {
        
-        public String Index(int num1 = 0, int num2 = 0)
+        public string Index(int num1 = 0, int num2 = 0)
         {
 
             if (num1 == null)
