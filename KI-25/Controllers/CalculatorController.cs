@@ -5,9 +5,10 @@ namespace KI_25.Controllers
 {
     public class CalculatorController : Controller
     {
-        
-        public string Index(int  num1, int num2)
+       
+        public String Index(int num1 = 0, int num2 = 0)
         {
+
             if (num1 == null)
             {
                 num1 = 0;
@@ -17,9 +18,12 @@ namespace KI_25.Controllers
                 num2 = 0;
             }
             int num = num1 + num2;
+
             return num.ToString();
+            
 
         }
+
         
     }
     
