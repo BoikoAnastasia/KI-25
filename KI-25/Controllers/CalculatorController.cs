@@ -2,33 +2,29 @@
 
 namespace KI_25.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class CalculatorController : ControllerBase
+    [Route("calculator/index/{a?}/{b?}/{operation?}")]
+    public class CalculatorControllerOne : Controller
     {
-        [HttpGet("index/{num1?}/{num2?}/{operation?}")]
-        public ActionResult<string> Calculate(string num1 = "0", string num2 = "0", string operation = "+")
-        { 
-            double number1 = string.IsNullOrEmpty(num1) ? 0 : double.Parse(num1);
-            double number2 = string.IsNullOrEmpty(num2) ? 0 : double.Parse(num2);
-
-            double result;
-            switch (operation)
+        public class Calculator : Controller
+        {
+            public string Index(int num1, int num2, char operation)
             {
-                case "+":
-                    result = number1 + number2;
-                    break;
-                case "-":
-                    result = number1 - number2;
-                    break;
-                case "*":
-                    result = number1 * number2;
-                    break;
-                default:
-                    return BadRequest("Неправильная операция. Используйте +, -, *.");
-            }
 
-            return $"{num1} {operation} {num2} = {result}";
+                switch (operation)
+                {
+                    case '+':
+                        int plus = num1 + num2;
+                        return plus.ToString();
+                    case '-':
+                        int minus = num1 - num2;
+                        return minus.ToString();
+                    case '*':
+                        int multiplymultiplication = num1 * num2;
+                        return multiplymultiplication.ToString();
+                    default:
+                        int def = num1 + num2;
+                        return def.ToString();
+                }
+            }
         }
     }
-}
