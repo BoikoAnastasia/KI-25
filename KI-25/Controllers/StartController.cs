@@ -3,40 +3,39 @@ using System.Data;
 
 namespace KI_25.Controllers
 {
-    [ApiController]
-    [Route("[controller]")]
     public class StartController : Controller
     {
-            [HttpGet("{time}")]
-            public string GetTime(string time)
+        public string getTime()
+        {
+            DateTime time = DateTime.Now;
+
+            return getString(time.Hour);
+        }
+
+        public string getString(int hour)
+        {
+
+            if (hour >= 0 && hour < 6)
             {
-
-            DateTime currentTime = DateTime.Now;
-
-               
-                string greeting = GetGreeting(currentTime.Hour);
-
-                return greeting;
+                return "Ночь";
             }
 
-            private string GetGreeting(int hour)
+            if (hour >= 6 && hour < 12)
             {
-                if (hour >= 0 && hour < 6)
-                {
-                    return "Доброй ночи";
-                }
-                else if (hour >= 6 && hour < 12)
-                {
-                    return "Доброе утро";
-                }
-                else if (hour >= 12 && hour < 18)
-                {
-                    return "Добрый день";
-                }
-                else
-                {
-                    return "Добрый вечер";
-                }
+                return "Утро";
             }
+
+            if (hour >= 12 && hour < 18)
+            {
+                return "День";
+            }
+
+            if (hour >= 18)
+            {
+                return "Вечер";
+            }
+
+            return "";
         }
     }
+}
