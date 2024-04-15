@@ -7,4 +7,12 @@
     <RootNamespace>KI_25</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Controllers\Calc.cs" />
+    <Compile Remove="Controllers\calculate.cs" />
+    <Compile Remove="Controllers\StartController.cs" />
+    <Compile Remove="Controllers\ValuesController.cs" />
+    <Compile Remove="Controllers\ValuesController1.cs" />
+  </ItemGroup>
+
 </Project>
