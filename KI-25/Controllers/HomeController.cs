@@ -1,32 +1,38 @@
-﻿using KI_25.Models;
+﻿using KI_25.Controllers.Data;
+using KI_25.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace KI_25.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public string Index(int id, ShopData dataJson)
         {
-            _logger = logger;//
-        }
+            var path = Path.Combine(Environment.CurrentDirectory, "data.json");
+            var json = System.IO.File.ReadAllText(path);
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+            ShopData dataJson = Newtonsoft.Json.JsonConvert.DeserializeObject<ShopData>(json);
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            string output = "";
+            if (id == 0)
+            {
+                for (int i = 0; i < dataJson.Id.Length; i++)
+                {
+                    output += dataJson.Id[i].ToString() + "\n" + dataJson.Name[i] + "\n" + dataJson.Cost[i] + "\n\n";
+                }
+                
+            }
+            else if (id > 0 && id <= dataJson.Id.Length)
+            {
+                output = dataJson.Id[id - 1].ToString() + "\n" + dataJson.Name[id - 1] + "\n" + dataJson.Cost[id - 1] + "\n" + dataJson.Description[id - 1];
+            }
+            else
+            {
+                output = "Invalid ID"; 
+            }
+            return output;
         }
     }
 }
