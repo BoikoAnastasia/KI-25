@@ -2,35 +2,36 @@
 
 namespace KI_25.Controllers
 {
-    public class CalcController : Controller
+    public class CalculatorController : Controller
     {
-        public string Index(int a, int b, string c)
+        public string Index(double? a, double? b, string c)
         {
-            if (a.GetType() == typeof(int) && b.GetType() == typeof(int))
+            double numA = a ?? 0;
+            double numB = b ?? 0;
+            string operation = string.IsNullOrEmpty(c) ? "+" : c;
+            double result;
+
+            switch (operation)
             {
-                switch (c)
-                {
-                    case "+":
-                    default:
-                        return a.ToString() + "+" + b.ToString() + " = " + (a + b).ToString();
-                    case "-":
-                        return a.ToString() + c + b.ToString() + " = " + (a - b).ToString();
-                    case "*":
-                        return a.ToString() + c + b.ToString() + " = " + (a * b).ToString();
-                    case "/":
-                        if (b != 0)
-                        {
-                            double result = (double)a / b;
-                            return a.ToString() + c + b.ToString() + " = " + result.ToString();
-                        }
-                        else
-                        {
-                            return "На 0 не делется";
-                        }
-                }
-                return "Мы не знаем что это такое";
+                case "+":
+                    result = numA + numB;
+                    break;
+                case "-":
+                    result = numA - numB;
+                    break;
+                case "*":
+                    result = numA * numB;
+                    break;
+                case "/":
+                    if (numB == 0)
+                        return "Деление на ноль невозможно.";
+                    result = numA / numB;
+                    break;
+                default:
+                    return "Неправильно задана операция. Допустимые операции: +, -, *, /";
             }
-            else return "Неправильно,попробуй еще раз";
+
+            return $"{numA} {operation} {numB} = {result}";
         }
     }
 }
