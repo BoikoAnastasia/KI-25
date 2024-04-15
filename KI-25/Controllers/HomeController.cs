@@ -10,7 +10,7 @@ namespace KI_25.Controllers
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = logger;//1111
         }
 
         public IActionResult Index()
