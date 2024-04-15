@@ -2,9 +2,7 @@
 
 namespace KI_25.Controllers
 {
-    [Route("calculator/index/{a?}/{b?}/{operation?}")]
-    public class CalculatorControllerOne : Controller
-    {
+ 
         public class Calculator : Controller
         {
             public string Index(int num1, int num2, char operation)
