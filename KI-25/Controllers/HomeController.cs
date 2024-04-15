@@ -19,10 +19,5 @@ namespace KI_25.Controllers
             {
                 str += Items[i].Id.ToString() + " " + Items[i].Name.ToString() + " " + Items[i].Price.ToString() + " " + Items[i].Description.ToString() + Items[i].Category + "\n";
             }
-
-                return str;
-        }
-
-  
-        }
-    }
+      }
+}
