@@ -4,6 +4,7 @@ namespace KI_25.Controllers
 {
     public class CalculatorController : Controller
     {
+
         public string Calculate(string num1, string num2)
             {
 
