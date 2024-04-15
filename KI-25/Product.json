@@ -1,0 +1,28 @@
+[
+
+  {
+    "Id": 1,
+    "Name": "Chair DxRecer",
+    "Description": "Cool Chair DxRecer122",
+    "Category": "Electronics",
+    "Brand": "DxRecer",
+    "Price": 99.99
+  },
+  {
+    "Id": 2,
+    "Name": "Lampa ",
+    "Description": "cool Lampa",
+    "Category": "wardrobe",
+    "Brand": "Lampa CCCP",
+    "Price": 49.99
+  },
+  {
+    "Id": 3,
+    "Name": "Table RX1",
+    "Description": "Reality cool Table",
+    "Category": "table",
+    "Brand": "Auid",
+    "Price": 19.99
+  }
+
+]
