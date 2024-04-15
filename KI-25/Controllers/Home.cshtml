@@ -1,0 +1,17 @@
+﻿@page
+@using KI_25.Models
+@model List<Product>
+@{
+    <h1>Products</h1>
+
+    @foreach (var product in Model)
+    {
+        <div>
+            <p>Id: @product.Id</p>
+            <p>Name: @product.Name</p>
+            <p>Price: @product.Price</p>
+            <p>Description: @product.Description</p>
+            <p>Category: @product.Category</p>
+        </div>
+    }
+}

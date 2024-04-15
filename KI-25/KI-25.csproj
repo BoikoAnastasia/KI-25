@@ -7,4 +7,9 @@
     <RootNamespace>KI_25</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="cosi-UtilsNoReference" Version="1.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
 </Project>
