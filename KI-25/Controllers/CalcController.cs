@@ -23,7 +23,7 @@ namespace CalculatorService.Controllers
                     break;
             }
             return result.ToString();
-        }
+            }
         public string SumNumbers(string firstValue, string secondValue)
         {
             double num1 = string.IsNullOrEmpty(firstValue) ? 0 : Convert.ToDouble(firstValue);
