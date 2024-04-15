@@ -6,27 +6,26 @@ namespace KI_25.Controllers
     {
         public string Index(int a, int b, string c)
         {
+            string result;
             switch (c)
             {
                 case "+":
-                    return $"{a} + {b} = {a + b}";
+                    result = (a + b).ToString();
+                    break;
                 case "-":
-                    return $"{a} - {b} = {a - b}";
+                    result = (a - b).ToString();
+                    break;
                 case "*":
-                    return $"{a} * {b} = {a * b}";
+                    result = (a * b).ToString();
+                    break;
                 case "/":
-                    if (b != 0)
-                    {
-                        double result = (double)a / b;
-                        return $"{a} / {b} = {result}";
-                    }
-                    else
-                    {
-                        return "На ноль делить нельзя!";
-                    }
+                    result = b != 0 ? ((double)a / b).ToString() : "Ошибка: Деление на ноль";
+                    break;
                 default:
-                    return "Операция не поддерживается";
+                    result = "Неизвестная операция";
+                    break;
             }
+            return $"{a} {c} {b} = {result}";
         }
     }
 }
