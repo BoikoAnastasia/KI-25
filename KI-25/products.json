@@ -3,36 +3,28 @@
     "Id": 1,
     "Name": "Велосипед1",
     "Cost": 40000,
-    "Description": "Лучший велосипед1"
+    "Description": "Лучший велосипед1",
+    "Image": "/css/imgs/bike1.png"
   },
   {
     "Id": 2,
     "Name": "Велосипед2",
     "Cost": 40000,
-    "Description": "Лучший велосипед2"
+    "Description": "Лучший велосипед2",
+    "Image": "/css/imgs/bike2.png"
   },
   {
     "Id": 3,
     "Name": "Велосипед3",
     "Cost": 23500,
-    "Description": "Описание велосипеда3"
+    "Description": "Описание велосипеда3",
+    "Image": "/css/imgs/bike3.png"
   },
   {
     "Id": 4,
     "Name": "Велосипед4",
     "Cost": 28000,
-    "Description": "Описание велосипеда4"
-  },
-  {
-    "Id": 5,
-    "Name": "Велосипед5",
-    "Cost": 33500,
-    "Description": "Описание велосипеда5"
-  },
-  {
-    "Id": 6,
-    "Name": "Велосипед6",
-    "Cost": 24700,
-    "Description": "Описание велосипеда6"
+    "Description": "Описание велосипеда4",
+    "Image": "/css/imgs/bike4.png"
   }
 ]

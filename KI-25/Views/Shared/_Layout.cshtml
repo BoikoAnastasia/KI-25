@@ -6,29 +6,70 @@
     <title>@ViewData["Title"] - KI_25</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/KI_25.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KI_25</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+
+    <!-- Modal login -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Вход</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="loginUser">Введите логин</label>
+                    <input class="input" type="login">
+                    <label for="passwordUser">Введите пароль</label>
+                    <input class="input input_password" type="password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Сохранить</button>
                 </div>
             </div>
-        </nav>
+        </div>
+    </div>
+
+    <!-- Modal registration -->
+    <div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Регистрация</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <label for="nameUser">Введите имя</label>
+                    <input class="input input_name" type="name">
+                    <label for="loginUser">Введите логин</label>
+                    <input class="input input_login" type="login">
+                    <label for="passwordUser">Введите пароль</label>
+                    <input class="input input_password" type="password">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Сохранить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="header_contetn wrapper">
+            <div class="logo_text">
+                <li><a href="/home/index">bike shop</a></li>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#footer">О нас</a></li>
+                    <li><a href="basket.html">Корзина</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Войти</a></li>
+                    <li><a href="#" data-bs-toggle="modal" data-bs-target="#registrationModal">Зарегистрироваться</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -36,9 +77,44 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - KI_25 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer id="footer" class="footer">
+        <div class="footer_content">
+            <div class="footer_section_one">
+                <span class="logo_text">
+                    <li><a href="/home/index">bike shop</a></li>
+                </span>
+                <img class="logo_img" src="/css/imgs/logo.png" alt="logo">
+            </div>
+            <div class="footer_section_two">
+                <nav>
+                    <ul>
+                        <li class="footer_title">Наши соцсети</li>
+                        <li>vk</li>
+                        <li>instargam</li>
+                        <li>telegram</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer_section_three">
+                <nav>
+                    <ul>
+                        <li class="footer_title">Контакты</li>
+                        <li>+70000000000</li>
+                        <li>+70000000000</li>
+                        <li>+70000000000</li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="footer_section_four">
+                <nav>
+                    <ul>
+                        <li class="footer_title">Адреса магазинов</li>
+                        <li>Адрес</li>
+                        <li>Адрес</li>
+                        <li>Адрес</li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
