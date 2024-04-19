@@ -1,0 +1,44 @@
+﻿@model List<Product>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Наименование товара</th>
+      <th scope="col">Фотография</th>
+      <th scope="col">Цена</th>
+    </tr>
+  </thead>
+  <tbody>
+@foreach (var product in Model)
+{
+    <tr>
+              <td>@product.Name</td>
+              <td> <img src="@product.Image" alt="bike" class="img_table" /></td>
+              <td>@product.Cost руб.</td>
+    </tr>
+
+       @*  <div class="table">
+            <div class="name_column column">
+                <h2>Наименование товара</h2>
+                <h2>@product.Name</h2>
+            </div>
+            <div class="price_by_1 column">
+                <h2>Фотография</h2>
+                <img src="@product.Image" alt="bike" />
+            </div>
+            <div class="sum column">
+                <h2>Цена</h2>
+                <p>@product.Cost руб.</p>
+            </div>
+        </div> *@
+}
+ </tbody>
+</table>
+<div class="buy">
+    <h2>Итог: @ViewBag.TotalCost руб.</h2>
+    <div class="buy_buttons">
+        <button class="buy_but glow-on-hover" type="button">Заказать</button>
+        <button class="buy_but">Отменить</button>
+    </div>
+</div>
