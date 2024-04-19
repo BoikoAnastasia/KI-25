@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(236, 236, 236);
+}
+img{
+    max-width: 100%;
+}
+
+main {
+    flex: 1;
+    padding: 5vw 0;
+    height: 100vh;
+}
+
+.wrapper{
+    max-width: 1360px;
+    margin: 0 auto;
+}
+
+header{
+    border-radius: 20px;
+    box-shadow: 0px 8px 9px 1px rgba(0, 0, 0, 0.25);
+    background: rgb(226, 226, 226);
+}
+
+
+.backgroundNavigation {
+    min-height: 80px;
+    display: flex;
+    font-size: 20px;
+    padding: 0 15px;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: space-between
+}
+
+.backgroundNavigation ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.shopTitle::before {
+    content: '◯';
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.shopTitle::after {
+    content: '☆';
+    font-size: 16px;
+    margin-left: 0px;
+    font-weight: bold;
+    vertical-align: super;
+}
+
+.headerButton button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.login {
+    margin-left: 10px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: rgb(188, 188, 188);
+}
+
+.registration {
+    background: rgb(226, 226, 226);
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 100vh; */
+}
+
+.divText {
+    font-size: 20px;
+    font-family: sans-serif;
+    width: 40%;
+}
+
+.divPhoto{
+    
+    width: 40%;
+}
+
+.divText h1 {
+    font-size: 36px;
+}
+
+.button {
+    border: none;
+    font-family: sans-serif;
+    font-size: 20px;
+    width: 150px;
+    height: 65px;
+    border-radius: 11px;
+    box-shadow: 0px 5px 3px 0px rgba(0, 0, 0, 0.33);
+    background: rgb(188, 188, 188);
+}
+
+.footer {
+    min-height: 60px;
+    display: flex;
+    font-family: sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px -8px 9px 1px rgba(0, 0, 0, 0.25);
+    background: rgb(226, 226, 226);
+}
