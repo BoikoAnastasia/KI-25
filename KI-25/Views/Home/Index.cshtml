@@ -2,7 +2,295 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="C:\Users\pavel\source\repos\KI-25\KI-25\Views\Content\">
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .active {
+            font-weight: bold;
+        }
+
+        .result, .grade {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        .correct-answer {
+            color: green;
+        }
+    </style>
+    <script>
+        function toggleSection(sectionId) {
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function (section) {
+                section.classList.add('hidden');
+            });
+
+            var buttons = document.querySelectorAll('button');
+            buttons.forEach(function (button) {
+                button.classList.remove('active');
+            });
+
+            var sectionToShow = document.getElementById(sectionId);
+            sectionToShow.classList.remove('hidden');
+
+            var buttonToActivate = document.querySelector('[onclick="toggleSection(\'' + sectionId + '\')"]');
+            buttonToActivate.classList.add('active');
+        }
+
+        function showResults() {
+            const form = document.getElementById('quizForm');
+            const answers = {
+                1: '2',
+                2: '2',
+                3: '2',
+                4: '1',
+                5: '3',
+                6: '3',
+                7: '2',
+                8: '3',
+                9: '2',
+                10: '2'
+            };
+
+            let score = 0;
+
+            for (let i = 1; i <= 10; i++) {
+                const selectedOption = form.querySelector(`input[name='${i}']:checked`);
+                if (!selectedOption || selectedOption.value !== answers[i]) {
+                    score++;
+                }
+            }
+
+            const result = document.createElement('p');
+            const percentage = ((10 - score) / 10) * 100;
+            result.textContent = `Ваш результат: ${10 - score} баллов из 10 (${percentage}%).`;
+            result.classList.add('result');
+            form.appendChild(result);
+
+            const grade = document.createElement('p');
+            let gradeText = '';
+            if (percentage >= 85) {
+                gradeText = 'Отлично! Ваша оценка - 5.';
+            } else if (percentage >= 70) {
+                gradeText = 'Хорошо! Ваша оценка - 4.';
+            } else if (percentage >= 50) {
+                gradeText = 'Удовлетворительно! Ваша оценка - 3.';
+            } else {
+                gradeText = 'Плохо! Ваша оценка - 2.';
+            }
+            grade.textContent = gradeText;
+            grade.classList.add('grade');
+            form.appendChild(grade);
+
+            var button = document.getElementById('resultButton');
+            button.value = 'Ответить снова на тест';
+            button.onclick = function () {
+                location.reload();
+            };
+
+            displayAnswers(answers);
+        }
+
+        function displayAnswers(answers) {
+            const form = document.getElementById('quizForm');
+            const questions = form.getElementsByTagName('li');
+
+            for (let i = 0; i < questions.length; i++) {
+                const question = questions[i];
+                const inputs = question.getElementsByTagName('input');
+                const questionText = question.textContent.split('?')[0].trim();
+
+                let correctAnswer = '';
+                for (let j = 0; j < inputs.length; j++) {
+                    if (inputs[j].value === answers[i + 1]) {
+                        correctAnswer = inputs[j].nextSibling.textContent.trim();
+                    }
+                }
+
+                let correctAnswerSpan = document.createElement('span');
+                correctAnswerSpan.textContent = `(Правильный ответ: ${answers[i + 1]})`;
+                correctAnswerSpan.classList.add('correct-answer');
+
+                let correct = false;
+                for (let j = 0; j < inputs.length; j++) {
+                    inputs[j].setAttribute('disabled', 'disabled');
+                    if (inputs[j].checked && inputs[j].value === answers[i + 1]) {
+                        inputs[j].parentNode.style.color = 'green';
+                        correct = true;
+                    }
+                }
+
+                if (!correct) {
+                    question.appendChild(correctAnswerSpan);
+                    question.appendChild(document.createElement('br'));
+                    question.style.color = 'red';
+                } else {
+                    question.appendChild(document.createElement('br'));
+                    question.appendChild(document.createElement('br'));
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-3">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand text-white" href="#">Site</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('main')" title="Главное">Главное</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('wpf')" title="WPF">WPF</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('csharp')" title="C#">C#</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('theme1')" title="Тема 1">Архитектура WPF</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('theme2')" title="Тема 2">Работа с данными в WPF</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('theme3')" title="Тема 3">Оптимизация производительности в WPF</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('contacts')" title="Контакты">Контакты</button></li>
+                    <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('test')" title="Тест по теории">Тест по теории</button></li>
+                    <li>
+                        <button class="logIn" onclick="location.href='/product/basket'">
+                            <img src="~/images/basket.jpg" alt="Basket">
+                        </button>
+
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <h1 class="animated-heading">Процесс создания десктопных приложений с помощью WPF и С#</h1>
+    </header>
+    <main class="container mt-4">
+        <section class="main-section" id="main">
+            <h2>Главное</h2>
+            <p>
+                Процесс создания десктопных приложений с использованием WPF и C# — увлекательный и творческий процесс.
+                Он включает в себя проектирование интерфейса, программирование логики приложения и многие другие важные этапы.
+            </p>
+            <p>
+                В основе разработки десктопных приложений лежит идея создания удобного и функционального пользовательского интерфейса. С помощью WPF разработчики могут создавать современные, адаптивные и визуально привлекательные интерфейсы, которые легко изменяются и масштабируются.
+            </p>
+            <p>
+                Программирование логики приложения на C# обеспечивает высокую производительность и надежность. Благодаря объектно-ориентированным принципам и поддержке современных парадигм программирования, таких как асинхронное программирование и LINQ (Language Integrated Query), разработчики могут создавать сложные и эффективные приложения.
+            </p>
+            <p>
+                Процесс создания приложения включает следующие основные этапы:
+            </p>
+            <ul>
+                <li><strong>Анализ требований</strong>: Определение целей и задач приложения, а также требований пользователей.</li>
+                <li><strong>Проектирование интерфейса</strong>: Создание макетов и прототипов пользовательского интерфейса, выбор визуальных элементов и стилей.</li>
+                <li><strong>Разработка логики приложения</strong>: Написание кода на C# для реализации функционала приложения, включая обработку данных, управление событиями и взаимодействие с базами данных.</li>
+                <li><strong>Тестирование и отладка</strong>: Проверка работоспособности приложения, выявление и устранение ошибок, оптимизация производительности.</li>
+                <li><strong>Деплой и сопровождение</strong>: Развертывание приложения на конечных устройствах, обновление и поддержка в процессе эксплуатации.</li>
+            </ul>
+            <p>
+                Разработка десктопных приложений с использованием WPF и C# позволяет создавать мощные и надежные решения для различных сфер, включая бизнес, образование, здравоохранение и многие другие.
+            </p>
+            <img src="C:\Users\pavel\source\repos\KI-25\KI-25\Views\Content\csharp-image.png.png" alt="DesktopWPF" />
+        </section>
+        <section class="hidden" id="wpf">
+            <h2>Что такое WPF?</h2>
+            <p>
+                WPF — это система для построения пользовательских интерфейсов в приложениях Windows, которая обеспечивает разделение логики интерфейса и бизнес-логики, используя XAML и C#.
+            </p>
+        </section>
+        <section class="hidden" id="csharp">
+            <h2>Что такое C#?</h2>
+            <p>
+                C# (C-Sharp) — современный объектно-ориентированный язык программирования, используемый для разработки приложений на платформе .NET.
+                Он широко применяется в создании десктопных приложений с использованием WPF.
+            </p>
+        </section>
+        <section class="hidden" id="theme1">
+            <h2>Архитектура WPF</h2>
+            <p>В архитектуре WPF-приложений обычно используется разделение на различные слои для управления логикой и представлением данных. Это помогает создать чистую, поддерживаемую и масштабируемую структуру приложения.</p>
+        </section>
+        <section class="hidden" id="theme2">
+            <h2>Работа с данными в WPF</h2>
+            <p>Работа с данными в WPF - это важный аспект создания приложений, который включает в себя несколько ключевых аспектов, таких как привязка данных, использование коллекций и взаимодействие с базой данных.</p>
+        </section>
+        <section class="hidden" id="theme3">
+            <h2>Оптимизация производительности в WPF</h2>
+            <p>Практические советы по оптимизации производительности WPF-приложений, включая использование виртуализации и асинхронных операций.</p>
+        </section>
+        <section class="hidden" id="contacts">
+            <h2>Контакты</h2>
+            <p>Email: att.edu@edu.ru</p>
+        </section>
+        <section class="hidden" id="test">
+            <h2>Тест по теории</h2>
+            <form id="quizForm">
+                <ol>
+                    <li>
+                        <p>Какой язык разметки используется в WPF для определения интерфейса?</p>
+                        <label><input type="radio" name="1" value="1"> HTML</label><br>
+                        <label><input type="radio" name="1" value="2"> XAML</label><br>
+                        <label><input type="radio" name="1" value="3"> XML</label><br>
+                    </li>
+                    <li>
+                        <p>Для чего используется XAML в WPF?</p>
+                        <label><input type="radio" name="2" value="1"> Для программирования логики приложения</label><br>
+                        <label><input type="radio" name="2" value="2"> Для определения интерфейса пользователя</label><br>
+                        <label><input type="radio" name="2" value="3"> Для работы с базами данных</label><br>
+                    </li>
+                    <li>
+                        <p>Что такое Data Binding в WPF?</p>
+                        <label><input type="radio" name="3" value="1"> Механизм связывания стилей</label><br>
+                        <label><input type="radio" name="3" value="2"> Механизм синхронизации данных между источником и интерфейсом</label><br>
+                        <label><input type="radio" name="3" value="3"> Механизм управления событиями</label><br>
+                    </li>
+                    <li>
+                        <p>Какой язык программирования используется для бизнес-логики в WPF?</p>
+                        <label><input type="radio" name="4" value="1"> C#</label><br>
+                        <label><input type="radio" name="4" value="2"> Python</label><br>
+                        <label><input type="radio" name="4" value="3"> JavaScript</label><br>
+                    </li>
+                    <li>
+                        <p>Какой шаблон часто используется в архитектуре WPF-приложений?</p>
+                        <label><input type="radio" name="5" value="1"> MVC</label><br>
+                        <label><input type="radio" name="5" value="2"> MVP</label><br>
+                        <label><input type="radio" name="5" value="3"> MVVM</label><br>
+                    </li>
+                    <li>
+                        <p>Что такое XAML?</p>
+                        <label><input type="radio" name="6" value="1"> Язык программирования</label><br>
+                        <label><input type="radio" name="6" value="2"> Библиотека классов</label><br>
+                        <label><input type="radio" name="6" value="3"> Язык разметки</label><br>
+                    </li>
+                    <li>
+                        <p>Что позволяет делать ObservableCollection в WPF?</p>
+                        <label><input type="radio" name="7" value="1"> Управлять стилями</label><br>
+                        <label><input type="radio" name="7" value="2"> Автоматически обновлять интерфейс при изменении коллекции</label><br>
+                        <label><input type="radio" name="7" value="3"> Работать с мультимедиа</label><br>
+                    </li>
+                    <li>
+                        <p>Что делает ключевое слово async в C#?</p>
+                        <label><input type="radio" name="8" value="1"> Синхронизирует данные</label><br>
+                        <label><input type="radio" name="8" value="2"> Выполняет операции ввода-вывода</label><br>
+                        <label><input type="radio" name="8" value="3"> Объявляет асинхронный метод</label><br>
+                    </li>
+                    <li>
+                        <p>Какой метод улучшает производительность при работе с большими объемами данных в WPF?</p>
+                        <label><input type="radio" name="9" value="1"> Кэширование</label><br>
+                        <label><input type="radio" name="9" value="2"> Виртуализация</label><br>
+                        <label><input type="radio" name="9" value="3"> Сериализация</label><br>
+                    </li>
+                    <li>
+                        <p>Что такое MVVM?</p>
+                        <label><input type="radio" name="10" value="1"> Язык разметки</label><br>
+                        <label><input type="radio" name="10" value="2"> Архитектурный шаблон</label><br>
+                        <label><input type="radio" name="10" value="3"> Библиотека классов</label><br>
+                    </li>
+                </ol>
+                <input type="button" id="resultButton" value="Показать результаты" onclick="showResults()">
+            </form>
+        </section>
+    </main>
+</body>
+</html>
