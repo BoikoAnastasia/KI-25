@@ -26,6 +26,17 @@
         .correct-answer {
             color: green;
         }
+
+        .logIn {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+            .logIn img {
+                width: 50px;
+                height: 50px;
+            }
     </style>
     <script>
         function toggleSection(sectionId) {
@@ -159,7 +170,6 @@
                         <button class="logIn" onclick="location.href='/product/basket'">
                             <img src="~/images/basket.jpg" alt="Basket">
                         </button>
-
                     </li>
                 </ul>
             </div>
@@ -193,6 +203,28 @@
                 Разработка десктопных приложений с использованием WPF и C# позволяет создавать мощные и надежные решения для различных сфер, включая бизнес, образование, здравоохранение и многие другие.
             </p>
             <img src="C:\Users\pavel\source\repos\KI-25\KI-25\Views\Content\csharp-image.png.png" alt="DesktopWPF" />
+
+            <h2>Products</h2>
+
+            <a href="@Url.Action("Add")" class="btn btn-primary">Add Product</a>
+
+            <div class="row">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                            <div class="card-body">
+                                <h5 class="card-title">@product.Name</h5>
+                                <p class="card-text">$@product.Price</p>
+                                <a href="@Url.Action("Delete", new { id = product.Id })" class="btn btn-danger">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+
         </section>
         <section class="hidden" id="wpf">
             <h2>Что такое WPF?</h2>
