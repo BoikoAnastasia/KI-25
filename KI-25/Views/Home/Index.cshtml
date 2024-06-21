@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="C:\Users\pavel\source\repos\KI-25\KI-25\Views\Content\">
+    <link rel="stylesheet" href="site.css">
     <style>
         .hidden {
             display: none;
@@ -208,24 +208,7 @@
 
             <a href="@Url.Action("Add")" class="btn btn-primary">Add Product</a>
 
-            <div class="row">
-                @foreach (var product in Model.Products)
-                {
-                    <div class="col-md-4">
-                        <div class="card">
-                            <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
-                            <div class="card-body">
-                                <h5 class="card-title">@product.Name</h5>
-                                <p class="card-text">$@product.Price</p>
-                                <a href="@Url.Action("Delete", new { id = product.Id })" class="btn btn-danger">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-
-
-        </section>
+                 </section>
         <section class="hidden" id="wpf">
             <h2>Что такое WPF?</h2>
             <p>
