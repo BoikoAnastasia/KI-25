@@ -1,49 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using KI_25.Models;
-using System.Linq;
+﻿using KI_25.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KI_25.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController
     {
-        private static List<Product> Products = new List<Product>
+        public IActionResult Index(int id)
         {
-            new Product { Id = 1, Name = "Product 1", Price = 10.0m },
-            new Product { Id = 2, Name = "Product 2", Price = 20.0m }
-        };
-
-        private static Basket UserBasket = new Basket();
-
-        public IActionResult Add()
-        {
-            return View(Products);
+            return View(ProductsList.ShopData[id]);
         }
 
-        [HttpPost]
-        public IActionResult AddToBasket(int productId)
+        private IActionResult View(Products products)
         {
-            var product = Products.FirstOrDefault(p => p.Id == productId);
-            if (product != null)
-            {
-                UserBasket.Products.Add(product);
-            }
-            return RedirectToAction("Basket");
+            throw new NotImplementedException();
         }
 
-        public IActionResult Basket()
+        public IActionResult basket(int id)
         {
-            return View(UserBasket);
+
+            BacketList.AddProduct(ProductsList.ShopData[id]);
+            return View(BacketList.ShopData);
         }
 
-        [HttpPost]
-        public IActionResult RemoveFromBasket(int productId)
+        private IActionResult View(List<Products> shopData)
         {
-            var product = UserBasket.Products.FirstOrDefault(p => p.Id == productId);
-            if (product != null)
-            {
-                UserBasket.Products.Remove(product);
-            }
-            return RedirectToAction("Basket");
+            throw new NotImplementedException();
         }
     }
 }
+

@@ -1,34 +1,30 @@
-﻿@model KI_25.Models.Basket
+﻿@using KI_25.Controllers
+@model Products
 
-<h2>Basket</h2>
-@if (Model.Products.Count == 0)
-{
-    <p>No products in basket.</p>
-}
-else
-{
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model.Products)
-            {
-                <tr>
-                    <td>@product.Name</td>
-                    <td>@product.Price</td>
-                    <td>
-                        <form asp-action="RemoveFromBasket" method="post">
-                            <input type="hidden" name="productId" value="@product.Id" />
-                            <button type="submit">Remove</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+
+<body>
+    <div class="container">
+        <div class="osnova">
+            <div>
+                @Model.Picture
+            </div>
+            <div class="product-info">
+                <h1>@Model.Name</h1>
+                <h1>@Model.Cost</h1>
+                <button>Купить</button>
+                <a href="/home/catalog">Продолжить покупки</a>
+            </div>
+        </div>
+        <h1>Описание</h1>
+        <div class="jj">
+            <p>@Model.Description</p>
+        </div>
+        <h1>Характеристика</h1>
+        <div class="jj">
+            <p>@Model.Specifications</p>
+        </div>
+        <h1>Доставка и оплата</h1>
+        <div class="jj">
+        </div>
+    </div>
+</body>

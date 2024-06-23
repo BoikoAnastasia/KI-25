@@ -1,7 +1,5 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
+﻿@using KI_25.Controllers
+@model HomeController
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -166,9 +164,8 @@
                     <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('theme3')" title="Тема 3">Оптимизация производительности в WPF</button></li>
                     <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('contacts')" title="Контакты">Контакты</button></li>
                     <li class="nav-item"><button class="btn btn-link nav-link text-white" onclick="toggleSection('test')" title="Тест по теории">Тест по теории</button></li>
+                    <li><a href="/Home/Catalog">Каталог</a></li>
                     <li>
-                        <button class="logIn" onclick="location.href='/product/basket'">
-                            <img src="~/images/basket.jpg" alt="Basket">
                         </button>
                     </li>
                 </ul>
