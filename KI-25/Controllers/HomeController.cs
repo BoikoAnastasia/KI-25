@@ -15,8 +15,10 @@ namespace KI_25.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
+
 
         public IActionResult Privacy()
         {
