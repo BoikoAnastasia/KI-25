@@ -7,7 +7,7 @@ namespace KI_25.Controllers
     {
         public string Hello()
         {
-            
+
 
             DateTime currentTime = DateTime.Now;
             int currentHour = currentTime.Hour;
@@ -26,13 +26,12 @@ namespace KI_25.Controllers
             }
             else
             {
-                return("Добрый вечер");
-            
+                return ("Добрый вечер");
+
             }
-            
+
         }
 
     }
-        
-}
 
+}
