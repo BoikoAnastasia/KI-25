@@ -1,0 +1,29 @@
+﻿@using KI_25.Controllers
+@model List<Product>
+
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="col-md-4">
+    @if (CartController.ids != null) {
+        for (int i = 0; i < CartController.ids.Count; i++)
+    {
+
+    <div class="card">
+            <img src="@ProductList.Products[CartController.ids[i]].ImageUrl" class="card-img-top" alt="Kawasaki" />
+            <div class="card-body">
+                <h5 class="card-title">@ProductList.Products[CartController.ids[i]].Name</h5>
+                <p class="card-text">@ProductList.Products[CartController.ids[i]].Description</p>
+                <p class="card-text">@ProductList.Products[CartController.ids[i]].Price</p>
+            </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h1>Cart is empty</h1>
+    }
+    </div>
+</body>

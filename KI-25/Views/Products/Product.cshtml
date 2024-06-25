@@ -1,0 +1,20 @@
+﻿@using KI_25.Controllers
+@model Product
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main-view">
+        <img src="@Model.ImageUrl" alt="Kawasaki" />
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text">@Model.Price</p>
+    </div>
+
+    <div class="cart-buttons">
+        <a href="/Cart/AddToCart/@Model.Id" class="btn btn-primary">Add to cart</a>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-primary">Return to a home page</a>
+    </div>
+</body>

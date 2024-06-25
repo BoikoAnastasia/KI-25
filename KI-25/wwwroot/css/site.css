@@ -15,4 +15,14 @@ html {
 
 body {
   margin-bottom: 60px;
+  align-items: center;
+}
+
+.main-view {
+    align-items: center;
+}
+
+.cart-buttons {
+    align-items: center;
+    display: inline;
 }
