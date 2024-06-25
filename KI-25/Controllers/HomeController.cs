@@ -18,7 +18,12 @@ namespace KI_25.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Card()
+        {
+            return View();
+        }
+
+        public IActionResult About()
         {
             return View();
         }

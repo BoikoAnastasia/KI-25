@@ -7,4 +7,8 @@
     <RootNamespace>KI_25</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\resources\Kawasaki.jpg" />
+  </ItemGroup>
+
 </Project>
